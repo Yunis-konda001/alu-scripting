@@ -11,7 +11,13 @@ def top_ten(subreddit):
     HEADERS = {"User-Agent": "PostmanRuntime/7.35.0"}
     try:
         RESPONSE = requests.get(URL, headers=HEADERS, allow_redirects=False)
-        HOT_POSTS = RESPONSE.json().get("data").get("children")
-        [print(post.get('data').get('title')) for post in HOT_POSTS]
+        if RESPONSE.status_code == 200:
+            HOT_POSTS = RESPONSE.json().get("data", {}).get("children", [])
+            if HOT_POSTS:
+                [print(post.get('data', {}).get('title')) for post in HOT_POSTS]
+            else:
+                print(None)
+        else:
+            print(None)
     except Exception:
         print(None)
