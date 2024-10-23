@@ -1,4 +1,3 @@
-wintermancer@lapbox ~/reddit_api/project $ cat 1-main.py
 #!/usr/bin/python3
 """
 1-main
