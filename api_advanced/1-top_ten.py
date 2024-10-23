@@ -18,8 +18,8 @@ def top_ten(subreddit):
         if posts:
             for post in posts:
                 print(post.get('data', {}).get('title', 'No Title'))
-            print("OK")  # Indicate that the subreddit is valid and posts were fetched
+            print("OK") 
         else:
-            print("OK")  # Subreddit is valid but no posts are available
+            print("OK") 
     else:
         print(None)
